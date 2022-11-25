@@ -1,1 +1,1 @@
-# Country-Trivia
+# Country Trivia
