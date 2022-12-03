@@ -100,6 +100,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "countryTrivia:build:production",
+            "firebaseProject": "cs336-finalproject-1fd79",
+            "firebaseHostingSite": "cs336-finalproject-1fd79"
+          }
         }
       }
     }

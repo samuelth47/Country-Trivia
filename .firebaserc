@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cs336-finalproject-1fd79": {
+      "hosting": {
+        "countryTrivia": [
+          "cs336-finalproject-1fd79"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cs336-finalproject-1fd79"
+  }
+}
