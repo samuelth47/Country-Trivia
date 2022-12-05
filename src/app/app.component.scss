@@ -1,16 +1,19 @@
 header {
 	position: sticky;
-	top: 0;
 	padding: 10px;
 	width: 25%;
-	height: auto;
 	background-color: slategray;
 	color: white;
 }
 
 #recentSearches {
-	text-align: end;
-	background-color: yellowgreen;
+	background-color: lightskyblue;
+	float: right;
+	padding: 2em;
+}
+
+#searchResult {
+	float: left;
 }
 
 #messageInput {
