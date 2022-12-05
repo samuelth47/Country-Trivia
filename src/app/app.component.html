@@ -1,22 +1,20 @@
 <h1>Country Trivia</h1>
 
 <header>
-    <span>First name: </span>
-    <input type="text" [(ngModel)]="name" (ngModelChange)="saveName()"/>
-    <br/>
-    <span>Last name: </span>
-    <input type="text" [(ngModel)]="name" (ngModelChange)="saveName()"/>
-    <br/>
-  </header>
-  
-  <div id="chat">
-    <hr/>
-  
-    <div *ngFor="let msg of message$">
-      <span id="time">{{msg.timestamp.toDate() | date:"medium"}}</span>
-      <span [style.color]="msg.color"> {{msg.message}}</span>
-    </div>
-    <br/>
-    <input type="text" placeholder="Search"    (keyup.enter)="sendMessage()" [(ngModel)]="message"
-      [style.color]="color" id = "messageInput"/> <button (click)="sendMessage()">Search</button>
+  <span>Name: </span>
+  <input type="text" [(ngModel)]="name" (ngModelChange)="saveName()" />
+  <br /><br />
+  <input type="text" placeholder="Search" (keyup.enter)="sendQuery()" [(ngModel)]="searchQuery" id="searchInput" />
+  &nbsp;
+  <button (click)="sendQuery()">Search</button>
+  <br />
+</header>
+
+<div>
+  <hr />
+
+  <div *ngFor="let result of searchArray">
+    <span id="time">{{result.timestamp.toDate() | date:"medium"}}</span>
+    <span> {{result.searchQuery}}</span>
   </div>
+</div>

@@ -1,8 +1,11 @@
 header {
 	position: sticky;
 	top: 0;
-	width: 100%;
-	background-color: rgb(255, 255, 255);
+	padding: 10px;
+	width: 25%;
+	height: auto;
+	background-color: slategray;
+	color: white;
 }
 
 #time {
@@ -11,5 +14,6 @@ header {
 }
 
 #messageInput {
-	width: 450px;
+	width: 500px;
+	justify-content: center;
 }
