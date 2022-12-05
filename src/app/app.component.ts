@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { query } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import * as firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
+import { ApiService } from './services/api.service';
 
 export interface FirestoreRec {
   name: string
@@ -17,12 +19,14 @@ export interface FirestoreRec {
 export class AppComponent {
   title = 'countryTrivia';
   searchResult = "";
+  countryData: any;
 
   name: string = localStorage.getItem("name")!;
   searchQuery: string = "";
   searchArray: FirestoreRec[] = [];
 
-  constructor(private firestore: AngularFirestore) {
+
+  constructor(private firestore: AngularFirestore, private api: ApiService) {
     this.getMessages().subscribe(result => this.searchArray = result);
   }
 
@@ -40,4 +44,10 @@ export class AppComponent {
   }
 
   saveName() { localStorage.setItem("name", this.name); }
+
+  getAPIData(searchQuery: string) {
+    this.api.getCountries(this.searchQuery).subscribe((data) => {
+      this.countryData = data;
+    });
+  }
 }
