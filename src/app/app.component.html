@@ -10,11 +10,8 @@
   <br />
 </header>
 
-<div>
-  <hr />
-
-  <div *ngFor="let result of searchArray">
-    <span id="time">{{result.timestamp.toDate() | date:"medium"}}</span>
-    <span> {{result.searchQuery}}</span>
+<section id="recentSearches">
+  <div>
+    <app-recent-searches *ngFor="let result of searchArray" [result]="result"></app-recent-searches>
   </div>
-</div>
+</section>

@@ -6,10 +6,12 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
+import { RecentSearchesComponent } from './components/recent-searches/recent-searches.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RecentSearchesComponent
   ],
   imports: [
     BrowserModule,
