@@ -16,6 +16,7 @@ export interface FirestoreRec {
 })
 export class AppComponent {
   title = 'countryTrivia';
+  searchResult = "";
 
   name: string = localStorage.getItem("name")!;
   searchQuery: string = "";
