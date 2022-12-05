@@ -31,7 +31,7 @@ export class AppComponent {
   }
 
   getMessages(): Observable<FirestoreRec[]> {
-    return this.firestore.collection<FirestoreRec>('searchQueries', ref => ref.orderBy('timestamp')).valueChanges()
+    return this.firestore.collection<FirestoreRec>('searchQueries', ref => ref.orderBy('timestamp').limitToLast(20)).valueChanges()
   }
 
   sendQuery(): void {
