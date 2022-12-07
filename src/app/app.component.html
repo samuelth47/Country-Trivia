@@ -1,17 +1,22 @@
 <h1>Country Trivia</h1>
 
 <header>
-  <span>Name: </span>
+  <label>Name: </label>
   <input type="text" [(ngModel)]="name" (ngModelChange)="saveName()" />
   <br /><br />
+
   <input type="text" placeholder="Search" (keyup.enter)="sendQuery()" [(ngModel)]="searchQuery" id="searchInput" />
   &nbsp;
-  <button (click)="sendQuery()">Search</button>
-  <br />
+
+  <button (click)="getAPIData(searchQuery); sendQuery()">Search</button>
 </header>
 
 <section id="recentSearches">
   <div>
     <app-recent-searches *ngFor="let result of searchArray" [result]="result"></app-recent-searches>
   </div>
+</section>
+
+<section id="searchResult">
+  <app-result *ngFor='let country of countryData' app-data [country]="country"></app-result>
 </section>
