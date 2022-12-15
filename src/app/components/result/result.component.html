@@ -1,8 +1,22 @@
-<p>
-    {{country.name}}
-    Population: {{country.population}}
-    Location: {{country.latlng}}<br>
-    Alternative Spellings: {{country.altSpellings}}<br>
-    Timezone: {{country.timezones}}<br>
-</p>
-
+<div class="content">
+    <div fxLayout="row">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-content>
+                    <span>
+                        <img mat-card-image src="{{country.flags.png}}" class="flag">
+                        <mat-card-title *ngIf="country">
+                            {{country.name}}
+                        </mat-card-title>
+                        Region: {{country.region}}<br>
+                        Capital: {{country.capital}}<br>
+                        Population: {{country.population}} <br>
+                        Location: {{country.latlng}}<br>
+                        Alternative Spellings: {{country.altSpellings}}<br>
+                        Timezone: {{country.timezones[0]}}<br>
+                    </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

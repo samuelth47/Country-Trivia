@@ -1,22 +1,45 @@
-<h1>Country Trivia</h1>
-
-<header>
-  <label>Name: </label>
-  <input type="text" [(ngModel)]="name" (ngModelChange)="saveName()" />
-  <br /><br />
-
-  <input type="text" placeholder="Search" (keyup.enter)="sendQuery()" [(ngModel)]="searchQuery" id="searchInput" />
-  &nbsp;
-
-  <button (click)="getAPIData(searchQuery); sendQuery()">Search</button>
-</header>
-
-<section id="recentSearches">
-  <div>
-    <app-recent-searches *ngFor="let result of searchArray" [result]="result"></app-recent-searches>
+<section class="header">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <h1>
+    <mat-icon class="icon">public</mat-icon>
+    Country Trivia
+  </h1>
+  <div *ngIf="!hasRoute('about')">
+    <p class="btn-bgstroke" routerLink="/about" routerLinkActive="active">About</p>
   </div>
-</section>
+  <section>
 
-<section id="searchResult">
-  <app-result *ngFor='let country of countryData' app-data [country]="country"></app-result>
-</section>
+    <div class="container">
+      <div class="body" *ngIf="!hasRoute('about')">
+        <mat-card id="userInputs">
+          <label>Name: </label>
+          <input type="text" [(ngModel)]="name" (ngModelChange)="saveName()" />
+          <!-- <br /><br /> -->
+
+          <div id="searchInput">
+            <input type="text" placeholder="Search Country" (keyup.enter)="sendQuery()" [(ngModel)]="searchQuery" />
+            &nbsp;
+
+            <button (click)="getAPIData(searchQuery); sendQuery()">Search</button>
+          </div>
+        </mat-card>
+
+        <mat-card id="recentSearches">
+          <div>
+            <app-recent-searches *ngFor="let result of searchArray" [result]="result"></app-recent-searches>
+          </div>
+        </mat-card>
+
+        <section id="searchResult">
+
+          <app-result *ngFor='let country of countryData' app-data [country]="country"></app-result>
+        </section>
+
+      </div>
+
+      <!-- Shows the content for about page -->
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
